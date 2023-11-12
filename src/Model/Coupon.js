@@ -29,6 +29,14 @@ class Coupon {
       const weekendCoupon = 2023;
     }
   }
+
+  holidayCoupon(day) {
+    this.getDayOfWeek(day);
+
+    if (dayOfWeek === 0 && day === 25) {
+      const holidayCoupon = 1000;
+    }
+  }
 }
 
 export default Coupon;
