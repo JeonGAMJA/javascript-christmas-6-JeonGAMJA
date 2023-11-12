@@ -1,14 +1,15 @@
 import { Console } from '@woowacourse/mission-utils';
 import ErrorHandler from '../ErrorHandler.js';
 
+const errorHandler = new ErrorHandler();
+
 const InputView = {
   async getDateUserInput() {
     try {
       const day = await Console.readLineAsync(
         '12월 중 식당 예상 방문 날짜는 언제인가요? (숫자만 입력해 주세요!)',
       );
-
-      new ErrorHandler(day);
+      errorHandler.validateDay(day);
 
       return day;
     } catch (e) {
