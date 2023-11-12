@@ -1,6 +1,7 @@
 class ErrorHandler {
   constructor(ele) {
-    this.validateDay(day);
+    this.validateDay(ele);
+    this.validateNumber(ele);
   }
 
   validateDay(day) {

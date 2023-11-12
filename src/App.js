@@ -1,5 +1,10 @@
+import InputView from './View/InputView.js';
+
 class App {
-  async run() {}
+  async run() {
+    await InputView.getDateUserInput();
+    await InputView.getMenuUserInput();
+  }
 }
 
 export default App;
