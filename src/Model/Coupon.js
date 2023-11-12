@@ -7,11 +7,26 @@ class Coupon {
     }
   }
 
-  weekdayCoupon(day) {
+  getDayOfWeek() {
     const date = new Date(2023, 11, day);
+    const dayOfWeek = date.getDay();
+
+    return dayOfWeek;
+  }
+
+  weekdayCoupon(day) {
+    this.getDayOfWeek(day);
 
     if (dayOfWeek >= 0 && dayOfWeek <= 4) {
       const weekdayCoupon = 2023;
+    }
+  }
+
+  weekendCoupon(day) {
+    this.getDayOfWeek(day);
+
+    if (dayOfWeek >= 5 && dayOfWeek <= 6) {
+      const weekendCoupon = 2023;
     }
   }
 }
