@@ -8,7 +8,7 @@ const InputView = {
   async getDateUserInput() {
     try {
       const day = await Console.readLineAsync(
-        '12월 중 식당 예상 방문 날짜는 언제인가요? (숫자만 입력해 주세요!)',
+        '12월 중 식당 예상 방문 날짜는 언제인가요? (숫자만 입력해 주세요!)\n',
       );
       errorHandler.validateDay(day);
       errorHandler.validateNumber(day);
@@ -23,7 +23,7 @@ const InputView = {
   async getMenuUserInput() {
     try {
       const ordersInput = await Console.readLineAsync(
-        `주문하실 메뉴를 메뉴와 개수를 알려 주세요. (e.g. 해산물파스타-2,레드와인-1,초코케이크-1)`,
+        `주문하실 메뉴를 메뉴와 개수를 알려 주세요. (e.g. 해산물파스타-2,레드와인-1,초코케이크-1)\n`,
       );
 
       const orders = ordersInput.split(',').map(order => order.split('-'));
@@ -34,6 +34,7 @@ const InputView = {
       errorHandler.validateOrderQuantity(order);
       errorHandler.validateDuplicateMenu(order, orders);
       errorHandler.validateOnlyDrink(order);
+      errorHandler.validateMenuName(order);
 
       return order;
     } catch (e) {

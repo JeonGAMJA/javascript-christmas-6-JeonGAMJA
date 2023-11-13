@@ -11,9 +11,11 @@ class PromotionController {
 
   async setup() {
     OutputView.printGreetings();
-    const day = await InputView.getDateUserInput();
+    await InputView.getDateUserInput();
     const order = await InputView.getMenuUserInput();
-    //OutputView.printMenu(olderDetail);
+    OutputView.printPreviewMessage();
+    OutputView.printMenu(order);
+    OutputView.printTotalCost(order);
   }
 }
 

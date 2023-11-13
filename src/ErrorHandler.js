@@ -53,8 +53,18 @@ class ErrorHandler {
 
     if (types.length === 0) {
       throw new Error(
-        `[ERROR] 음료만 주문 시, 주문할 수 없습니다. 다시 입력해주세요.`,
+        `[ERROR] 음료만 주문 시 주문할 수 없습니다. 다시 입력해주세요.`,
       );
+    }
+  }
+
+  validateMenuName(order) {
+    const orderDetail = menu.getOrderDetail(order);
+    const menuName = Object.keys(orderDetail);
+    if (
+      menuName.every(menuName => Object.keys(MENU).includes(menuName)) === false
+    ) {
+      throw new Error(`[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.`);
     }
   }
 }

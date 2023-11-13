@@ -23,18 +23,26 @@ class Menu {
     const orderDetails = {};
 
     for (const orderMenu in order) {
-      if (order.hasOwnProperty(orderMenu) && MENU.hasOwnProperty(orderMenu)) {
-        orderDetails[orderMenu] = {
-          const: MENU[orderMenu].cost,
-          type: MENU[orderMenu].type,
-          quantity: order[orderMenu],
-        };
-      }
+      orderDetails[orderMenu] = {
+        cost: MENU[orderMenu]?.cost || 0,
+        type: MENU[orderMenu]?.type || '',
+        quantity: order[orderMenu],
+      };
     }
 
-    console.log(orderDetails);
-
     return orderDetails;
+  }
+
+  getOrderMenus(order) {
+    const orderDetail = this.getOrderDetail(order);
+    let orderMenus = '';
+
+    for (const menu in orderDetail) {
+      const { quantity } = orderDetail[menu];
+      orderMenus += `${menu} ${quantity}개\n`;
+    }
+
+    return orderMenus.trim();
   }
 
   getCost() {}
