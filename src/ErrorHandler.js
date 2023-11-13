@@ -46,7 +46,15 @@ class ErrorHandler {
   }
 
   validateOnlyDrink(order) {
-    if (order) {
+    const orderDetail = menu.getOrderDetail(order);
+    const types = Object.values(orderDetail)
+      .map(detail => detail.type)
+      .filter(type => type !== '음료');
+
+    if (types.length === 0) {
+      throw new Error(
+        `[ERROR] 음료만 주문 시, 주문할 수 없습니다. 다시 입력해주세요.`,
+      );
     }
   }
 }
