@@ -3,10 +3,11 @@ import InputView from '../View/InputView.js';
 
 class Menu {
   getOrderMenuQuantity(order) {
+    const quantity = [];
     for (const orderMenu in order) {
-      const quantity = order[orderMenu];
-      console.log(quantity);
+      quantity.push(order[orderMenu]);
     }
+    return quantity;
   }
   getMenuInfo(order) {}
 

@@ -2,6 +2,7 @@ import { MENU } from './constants.js';
 import Menu from './Model/Menu.js';
 
 const verifyNumber = /^[0-9]+$/;
+const menu = new Menu();
 
 class ErrorHandler {
   validateDay(day) {
@@ -27,6 +28,13 @@ class ErrorHandler {
           '[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.',
         );
       }
+    }
+  }
+  validateOrderQuantity(order) {
+    const quantity = menu.getOrderMenuQuantity(order);
+
+    if (quantity.reduce((acc, cur) => acc + cur) > 20) {
+      throw new Error(` [ERROR] 주문은 20개 까지 가능합니다.`);
     }
   }
 }

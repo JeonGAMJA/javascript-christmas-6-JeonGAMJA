@@ -31,6 +31,7 @@ const InputView = {
         orders.map(([menu, quantity]) => [menu, Number(quantity)]),
       );
       errorHandler.validateOrder(order);
+      errorHandler.validateOrderQuantity(order);
 
       return order;
     } catch (e) {
