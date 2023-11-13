@@ -1,4 +1,5 @@
 import { Console } from '@woowacourse/mission-utils';
+import Menu from '../Model/Menu.js';
 
 const OutputView = {
   printGreetings() {
@@ -29,8 +30,8 @@ const OutputView = {
     Console.print(`<12월 이벤트 배지>`);
   },
 
-  printMenu() {
-    Console.print('<주문 메뉴>');
+  printMenu(older) {
+    Console.print('<주문 메뉴>\n');
   },
 };
 

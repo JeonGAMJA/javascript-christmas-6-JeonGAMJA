@@ -1,9 +1,11 @@
-import InputView from './View/InputView.js';
+import PromotionController from './Controller/PromotionController.js';
 
 class App {
+  constructor() {
+    this.promotionController = new PromotionController();
+  }
   async run() {
-    await InputView.getDateUserInput();
-    await InputView.getMenuUserInput();
+    this.promotionController.setup();
   }
 }
 

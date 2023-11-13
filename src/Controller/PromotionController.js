@@ -1,10 +1,20 @@
-import InputView from '../View/InputView';
-import OutputView from '../View/OutputView';
-import Coupon from '../Model/Coupon';
-import Menu from '../Model/Menu';
+import InputView from '../View/InputView.js';
+import OutputView from '../View/OutputView.js';
+import Coupon from '../Model/Coupon.js';
+import Menu from '../Model/Menu.js';
 
 class PromotionController {
-  constructor() {}
+  constructor() {
+    this.coupon = new Coupon();
+    this.menu = new Menu();
+  }
 
-  async setup() {}
+  async setup() {
+    OutputView.printGreetings();
+    const day = await InputView.getDateUserInput();
+    const older = await InputView.getMenuUserInput();
+    OutputView.printMenu(olderDetail);
+  }
 }
+
+export default PromotionController;

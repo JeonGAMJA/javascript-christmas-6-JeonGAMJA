@@ -1,7 +1,7 @@
-import InputView from '../View/InputView';
+import InputView from '../View/InputView.js';
 
 class Coupon {
-  christmasDdayCoupon() {
+  christmasDdayCoupon(day) {
     if (day >= 1 && day <= 25) {
       const christmasDdayCoupon = 1000 + 100 * (day - 1);
     }
