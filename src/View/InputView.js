@@ -32,6 +32,8 @@ const InputView = {
       );
       errorHandler.validateOrder(order);
       errorHandler.validateOrderQuantity(order);
+      errorHandler.validateDuplicateMenu(order, orders);
+      errorHandler.validateOnlyDrink(order);
 
       return order;
     } catch (e) {

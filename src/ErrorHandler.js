@@ -30,11 +30,23 @@ class ErrorHandler {
       }
     }
   }
+
   validateOrderQuantity(order) {
     const quantity = menu.getOrderMenuQuantity(order);
 
     if (quantity.reduce((acc, cur) => acc + cur) > 20) {
-      throw new Error(` [ERROR] 주문은 20개 까지 가능합니다.`);
+      throw new Error(`[ERROR] 주문은 20개 까지 가능합니다.`);
+    }
+  }
+
+  validateDuplicateMenu(order, orders) {
+    if (Object.keys(order).length !== orders.length) {
+      throw new Error(`[ERROR] 유효하지 않은 주문입니다. 다시 입력해주세요.`);
+    }
+  }
+
+  validateOnlyDrink(order) {
+    if (order) {
     }
   }
 }
