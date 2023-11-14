@@ -82,6 +82,7 @@ class Coupon {
     totalCouponCost += this.weekdayCoupon(day, order) || 0;
     totalCouponCost += this.weekendCoupon(day, order) || 0;
     totalCouponCost += this.holidayCoupon(day) || 0;
+    totalCouponCost += this.giftMenuDiscount(order) || 0;
 
     return totalCouponCost;
   }
@@ -89,10 +90,32 @@ class Coupon {
   getDiscountedAmount(day, order) {
     const totalCost = menu.getTotalCost(order);
     const totalCouponCost = this.getTotalCouponCost(day, order);
+    const giftMenu = this.giftMenuDiscount(order) || 0;
 
-    const discountedAmount = totalCost - totalCouponCost;
+    const discountedAmount = totalCost - totalCouponCost + giftMenu;
 
     return discountedAmount;
+  }
+
+  getBadge(day, order) {
+    const totalCouponCost = this.getTotalCouponCost(day, order);
+    let badge = '';
+
+    switch (true) {
+      case totalCouponCost >= 20000:
+        badge = '산타';
+        break;
+      case totalCouponCost >= 10000:
+        badge = '트리';
+        break;
+      case totalCouponCost >= 5000:
+        badge = '별';
+        break;
+      default:
+        badge = '없음';
+        break;
+    }
+    return badge;
   }
 }
 

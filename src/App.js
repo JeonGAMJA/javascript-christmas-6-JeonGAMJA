@@ -5,7 +5,7 @@ class App {
     this.promotionController = new PromotionController();
   }
   async run() {
-    this.promotionController.setup();
+    await this.promotionController.setup();
   }
 }
 

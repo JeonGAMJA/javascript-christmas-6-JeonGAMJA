@@ -10,8 +10,6 @@ class PromotionController {
   }
 
   async setup() {
-    OutputView.printGreetings();
-
     const day = await InputView.getDateUserInput();
     const order = await InputView.getMenuUserInput();
 

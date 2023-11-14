@@ -60,7 +60,7 @@ class Menu {
     const totalCost = this.getTotalCost(order);
     let giftMenu = null;
 
-    if (totalCost > 120000) {
+    if (totalCost >= 120000) {
       giftMenu = `샴페인`;
     }
 

@@ -12,3 +12,8 @@ export const MENU = {
   레드와인: { cost: 60000, type: '음료' },
   샴페인: { cost: 25000, type: '음료' },
 };
+
+export const INPUT_MESSAGE = {
+  greeting: '안녕하세요! 우테코 식당 12월 이벤트 플래너입니다.',
+  previewMessage: '12월 26일에 우테코 식당에서 받을 이벤트 혜택 미리 보기! \n',
+};
