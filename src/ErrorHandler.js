@@ -19,11 +19,7 @@ class ErrorHandler {
 
   validateOrder(order) {
     for (const quantity in order) {
-      if (
-        order[quantity] === 0 ||
-        verifyNumber.test(order[quantity]) === false ||
-        order[quantity] === undefined
-      ) {
+      if (!order[quantity] || !verifyNumber.test(order[quantity])) {
         throw new Error(
           '[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.',
         );

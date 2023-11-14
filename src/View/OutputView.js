@@ -1,7 +1,9 @@
 import { Console } from '@woowacourse/mission-utils';
 import Menu from '../Model/Menu.js';
+import Coupon from '../Model/Coupon.js';
 
 const menu = new Menu();
+const coupon = new Coupon();
 
 const OutputView = {
   printGreetings() {
@@ -14,31 +16,46 @@ const OutputView = {
 
   printMenu(order) {
     const orderMenu = menu.getOrderMenus(order);
-    Console.print(`<주문 메뉴>\n${orderMenu}`);
+    Console.print(`<주문 메뉴>\n${orderMenu}\n`);
   },
 
-  printTotalCost() {
-    Console.print(`<할인 전 총주문 금액>`);
+  printTotalCost(order) {
+    const totalCost = menu.getTotalCost(order);
+    Console.print(
+      `<할인 전 총주문 금액>\n${totalCost.toLocaleString('ko-KR')}원\n`,
+    );
   },
 
-  printGiftMenu() {
-    Console.print(`<증정 메뉴>`);
+  printGiftMenu(order) {
+    const giftMenu = menu.getGiftMenu(order);
+    Console.print(`<증정 메뉴>\n${giftMenu}\n`);
   },
 
-  printBenefitDetails() {
+  printBenefitDetails(day, order) {
     Console.print(`<혜택 내역>`);
+    const printDiscount = (discount, label) => {
+      if (discount !== undefined) {
+        Console.print(`${label}: -${discount.toLocaleString('ko-KR')}원`);
+      }
+    };
+
+    printDiscount(coupon.christmasDdayCoupon(day), '크리스마스 디데이 할인');
+    printDiscount(coupon.weekdayCoupon(day, order), '평일 할인');
+    printDiscount(coupon.weekendCoupon(day, order), '주말 할인');
+    printDiscount(coupon.holidayCoupon(day), '특별 할인');
+    printDiscount(coupon.giftMenuDiscount(order), '증정 이벤트');
   },
 
-  printTotalBenefitCost() {
-    Console.print(`<총혜택 금액>`);
+  printTotalBenefitCost(day, order) {
+    Console.print(`\n<총혜택 금액>\n`);
   },
 
   printaDiscoutCost() {
-    Console.print(`<할인 후 예상 결제 금액>`);
+    Console.print(`<할인 후 예상 결제 금액>\n`);
   },
 
   printBadge() {
-    Console.print(`<12월 이벤트 배지>`);
+    Console.print(`<12월 이벤트 배지>\n`);
   },
 };
 
