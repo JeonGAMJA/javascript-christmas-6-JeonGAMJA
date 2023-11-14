@@ -74,6 +74,26 @@ class Coupon {
       return giftMenuDiscount;
     }
   }
+
+  getTotalCouponCost(day, order) {
+    let totalCouponCost = 0;
+
+    totalCouponCost += this.christmasDdayCoupon(day) || 0;
+    totalCouponCost += this.weekdayCoupon(day, order) || 0;
+    totalCouponCost += this.weekendCoupon(day, order) || 0;
+    totalCouponCost += this.holidayCoupon(day) || 0;
+
+    return totalCouponCost;
+  }
+
+  getDiscountedAmount(day, order) {
+    const totalCost = menu.getTotalCost(order);
+    const totalCouponCost = this.getTotalCouponCost(day, order);
+
+    const discountedAmount = totalCost - totalCouponCost;
+
+    return discountedAmount;
+  }
 }
 
 export default Coupon;

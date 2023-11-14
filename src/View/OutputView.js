@@ -47,11 +47,19 @@ const OutputView = {
   },
 
   printTotalBenefitCost(day, order) {
-    Console.print(`\n<총혜택 금액>\n`);
+    Console.print(
+      `\n<총혜택 금액>\n-${coupon
+        .getTotalCouponCost(day, order)
+        .toLocaleString('ko-KR')}원\n`,
+    );
   },
 
-  printaDiscoutCost() {
-    Console.print(`<할인 후 예상 결제 금액>\n`);
+  printaDiscoutCost(day, order) {
+    Console.print(
+      `<할인 후 예상 결제 금액>\n${coupon
+        .getDiscountedAmount(day, order)
+        .toLocaleString('ko-KR')}원\n`,
+    );
   },
 
   printBadge() {

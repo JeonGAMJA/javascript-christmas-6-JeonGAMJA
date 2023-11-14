@@ -20,7 +20,9 @@ class PromotionController {
     OutputView.printTotalCost(order);
     OutputView.printGiftMenu(order);
     OutputView.printBenefitDetails(day, order);
-    OutputView.printTotalBenefitCost();
+    OutputView.printTotalBenefitCost(day, order);
+    OutputView.printaDiscoutCost(day, order);
+    OutputView.printBadge(day, order);
   }
 }
 
