@@ -55,4 +55,15 @@ describe('Menu 클래스 테스트', () => {
 
     expect(result).toEqual(expected);
   });
+
+  test('입력받은 메뉴의 총 금액을 반환한다.', () => {
+    const result = menu.getTotalCost(mockMenu);
+    let expected = 0;
+
+    for (const key in mockMenu) {
+      expected += MENU[key].cost * mockMenu[key];
+    }
+
+    expect(result).toEqual(expected);
+  });
 });
