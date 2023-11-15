@@ -21,4 +21,8 @@ describe('Coupon 클래스 테스트', () => {
   test('입력한 날짜가 평일이면 true 반환', async () => {
     expect(coupon.isValidWeekday(5)).toBe(true);
   });
+
+  test('입력한 날짜가 주말이면 true 반환', async () => {
+    expect(coupon.isValidWeekend(2)).toBe(true);
+  });
 });
