@@ -77,4 +77,18 @@ describe('Menu 클래스 테스트', () => {
 
     expect(result).toEqual(expected);
   });
+
+  test('입력받은 메뉴 중 디저트의 갯수를 반환', () => {
+    const result = menu.getDessertCount(mockMenu);
+    let expected = 0;
+
+    for (const key in detail) {
+      const { type } = detail[key];
+      if (type === '디저트') {
+        expected += detail[key].quantity;
+      }
+    }
+
+    expect(result).toEqual(expected);
+  });
 });
