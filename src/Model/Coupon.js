@@ -64,7 +64,7 @@ class Coupon {
 
   isValidHoliday(day) {
     const dayOfWeek = this.getDayOfWeek(day);
-    return dayOfWeek === 0 && day === 25;
+    return dayOfWeek === 0 || day === 25;
   }
 
   giftMenuDiscount(order) {
@@ -99,23 +99,12 @@ class Coupon {
 
   getBadge(day, order) {
     const totalCouponCost = this.getTotalCouponCost(day, order);
-    let badge = '';
 
-    switch (true) {
-      case totalCouponCost >= 20000:
-        badge = '산타';
-        break;
-      case totalCouponCost >= 10000:
-        badge = '트리';
-        break;
-      case totalCouponCost >= 5000:
-        badge = '별';
-        break;
-      default:
-        badge = '없음';
-        break;
-    }
-    return badge;
+    if (totalCouponCost >= 20000) return '산타';
+    if (totalCouponCost >= 10000) return '트리';
+    if (totalCouponCost >= 5000) return '별';
+
+    return '없음';
   }
 }
 
