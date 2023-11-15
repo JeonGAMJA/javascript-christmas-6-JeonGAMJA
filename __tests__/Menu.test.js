@@ -66,4 +66,15 @@ describe('Menu 클래스 테스트', () => {
 
     expect(result).toEqual(expected);
   });
+
+  test('입력받은 메뉴의 총 금액이 12만원 이상하면 증정메뉴를 반환한다', () => {
+    const result = menu.getGiftMenu(mockMenu);
+    const totalCost = menu.getTotalCost(mockMenu);
+    let expected = null;
+
+    if (totalCost >= 120000) expected = '샴페인';
+    if (totalCost < 120000) expected = '없음';
+
+    expect(result).toEqual(expected);
+  });
 });
