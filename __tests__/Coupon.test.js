@@ -8,4 +8,9 @@ describe('Coupon 클래스 테스트', () => {
 
     expect(coupon.isValidChristmasDday(day)).toBe(true);
   });
+
+  test('christmasDdayCoupon 함수 테스트', async () => {
+    expect(coupon.christmasDdayCoupon(11)).toBe(2000);
+    expect(coupon.christmasDdayCoupon(26)).toBeUndefined();
+  });
 });
