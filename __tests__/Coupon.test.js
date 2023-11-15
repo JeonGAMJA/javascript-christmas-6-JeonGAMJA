@@ -43,4 +43,8 @@ describe('Coupon 클래스 테스트', () => {
 
     expect(coupon.weekendCoupon(day, order)).toBe(4046);
   });
+
+  test('입력한 날짜가 공휴일이면 특별할인 쿠폰 가격 반환', async () => {
+    expect(coupon.holidayCoupon(25)).toBe(1000);
+  });
 });
