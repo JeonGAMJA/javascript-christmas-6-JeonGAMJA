@@ -60,4 +60,11 @@ describe('Coupon 클래스 테스트', () => {
 
     expect(coupon.getTotalCouponCost(day, order)).toBe(29223);
   });
+
+  test('혜택 금액 별로 배지 반환', async () => {
+    const day = 3;
+    const order = { 해산물파스타: 2, 레드와인: 1, 초코케이크: 1 };
+
+    expect(coupon.getBadge(day, order)).toBe('산타');
+  });
 });
