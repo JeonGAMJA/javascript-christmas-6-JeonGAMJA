@@ -53,4 +53,11 @@ describe('Coupon 클래스 테스트', () => {
 
     expect(coupon.giftMenuDiscount(order)).toBe(25000);
   });
+
+  test('총 쿠폰 가격을 합산하여 반환', async () => {
+    const day = 3;
+    const order = { 해산물파스타: 2, 레드와인: 1, 초코케이크: 1 };
+
+    expect(coupon.getTotalCouponCost(day, order)).toBe(29223);
+  });
 });
