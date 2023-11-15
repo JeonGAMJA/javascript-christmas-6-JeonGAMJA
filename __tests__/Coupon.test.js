@@ -36,4 +36,11 @@ describe('Coupon 클래스 테스트', () => {
 
     expect(coupon.weekdayCoupon(day, order)).toBe(2023);
   });
+
+  test('입력한 날짜가 주말이고 메인메뉴를 주문했을 경우 주말쿠폰 가격 반환', async () => {
+    const order = { 해산물파스타: 2, 레드와인: 1, 초코케이크: 1 };
+    const day = 2;
+
+    expect(coupon.weekendCoupon(day, order)).toBe(4046);
+  });
 });
