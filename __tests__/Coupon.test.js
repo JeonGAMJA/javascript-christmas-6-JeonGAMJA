@@ -29,4 +29,11 @@ describe('Coupon 클래스 테스트', () => {
   test('입력한 날짜가 공휴일이면 true 반환', async () => {
     expect(coupon.isValidHoliday(25)).toBe(true);
   });
+
+  test('입력한 날짜가 평일이고 디저트를 주문했을 경우 평일쿠폰 가격 반환', async () => {
+    const order = { 해산물파스타: 2, 레드와인: 1, 초코케이크: 1 };
+    const day = 3;
+
+    expect(coupon.weekdayCoupon(day, order)).toBe(2023);
+  });
 });
