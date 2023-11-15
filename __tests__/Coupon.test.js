@@ -17,4 +17,8 @@ describe('Coupon 클래스 테스트', () => {
   test('입력한 날짜에 해당하는 요일에 해당하는 숫자를 반환', async () => {
     expect(coupon.getDayOfWeek(3)).toBe(0);
   });
+
+  test('입력한 날짜가 평일이면 true 반환', async () => {
+    expect(coupon.isValidWeekday(5)).toBe(true);
+  });
 });
