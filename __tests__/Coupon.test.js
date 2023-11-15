@@ -13,4 +13,8 @@ describe('Coupon 클래스 테스트', () => {
     expect(coupon.christmasDdayCoupon(11)).toBe(2000);
     expect(coupon.christmasDdayCoupon(26)).toBeUndefined();
   });
+
+  test('입력한 날짜에 해당하는 요일에 해당하는 숫자를 반환', async () => {
+    expect(coupon.getDayOfWeek(3)).toBe(0);
+  });
 });
