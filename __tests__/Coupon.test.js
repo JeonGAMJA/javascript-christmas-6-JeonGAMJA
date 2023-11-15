@@ -47,4 +47,10 @@ describe('Coupon 클래스 테스트', () => {
   test('입력한 날짜가 공휴일이면 특별할인 쿠폰 가격 반환', async () => {
     expect(coupon.holidayCoupon(25)).toBe(1000);
   });
+
+  test('증정메뉴를 받았을 경우 증정메뉴 가격 반환', async () => {
+    const order = { 해산물파스타: 2, 레드와인: 1, 초코케이크: 1 };
+
+    expect(coupon.giftMenuDiscount(order)).toBe(25000);
+  });
 });
